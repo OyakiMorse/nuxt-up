@@ -5,7 +5,7 @@ export default defineNuxtConfig({
         '@': 'src/',
   },
   ssr: true,
-  // css: [
-  //   '~/assets/scss/common.scss',
-  // ],
+  css: [
+    '~/assets/scss/common.scss',
+  ],
 })
