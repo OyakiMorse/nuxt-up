@@ -1,5 +1,153 @@
-.header {
-  background-color: red;
-  font-family: "Montserrat";
-  // font-family: "Roboto";
+.inital {
+  position: relative;
+  height: 100vh;
+
+  &__bg {
+    &-img {
+      z-index: -1;
+      position: absolute;
+      width: 100%;
+      max-height: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+  }
+
+  &__card {
+    padding: 50px;
+    background-color: hsla(244, 16%, 92%, 0.55);
+    border: 2px solid hsla(244, 16%, 92%, 0.75);
+    backdrop-filter: blur(20px);
+    height: 530px;
+    max-height: 100%;
+    width: 600px;
+    max-width: 100%;
+    border-radius: 10px;
+
+    &-title {
+      margin-bottom: 10px;
+      color: $dark;
+
+      & > span {
+        color: $purple;
+      }
+    }
+
+    &-subtitle {
+      margin-bottom: 32px;
+      font-size: 18px;
+      color: rgb(98, 96, 96);
+    }
+
+    &-task {
+      &-link {
+        font-size: 32px;
+        text-transform: uppercase;
+        color: rgb(75, 75, 75);
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__form {
+    &-inputs,
+    &-field,
+    &-box {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    &-box {
+      position: relative;
+      gap: 0;
+    }
+
+    &-field {
+      gap: 5px;
+    }
+
+    &-label {
+      font-weight: 500;
+    }
+
+    &-input {
+      height: 50px;
+      padding: 0 10px;
+      border-radius: 5px;
+      border: 2px solid $dark;
+      background-color: hsla(244, 16%, 92%, 0.75);
+      font-size: 16px;
+      backdrop-filter: blur(1px);
+      color: $dark;
+
+      &::placeholder {
+        color: $dark;
+        font-size: 15px;
+        font-family: 'Montserrat';
+      }
+
+      &:focus {
+        outline: none;
+        border: 2px solid $purple;
+      }
+    }
+
+    &-buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    &-btn {
+      border: none;
+      border-radius: 5px;
+      width: 100%;
+      padding: 20px 10px;
+      font-size: 18px;
+      color: white;
+      font-weight: 600;
+      background: linear-gradient(180deg, $purple, $darkPurple);
+      cursor: pointer;
+      box-shadow: 0 6px 24px hsla(244, 75%, 48%, 0.5);
+
+      &--light {
+        border: 2px solid $purple;
+        color: $purple;
+        background: hsla(244, 16%, 92%, 0.5);
+        box-shadow: none;
+      }
+    }
+
+    &-error {
+      text-transform: uppercase;
+      font-size: small;
+      color: red;
+    }
+  }
+
+  &__password--hide {
+    width: 32px;
+  }
+}
+
+.icon-eye {
+  max-width: max-content;
+  min-width: max-content;
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  top: 0;
+  margin: auto 0;
+  cursor: pointer;
 }
