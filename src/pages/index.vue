@@ -1,7 +1,7 @@
 <template>
   <div class="inital">
     <div class="inital__bg">
-      <img src="../public/img/bg3.png" alt="bg" class="inital__bg-img" />
+      <img src="/img/bg3.png" alt="bg" class="inital__bg-img" />
     </div>
 
     <Header />
@@ -11,94 +11,93 @@
         <div class="inital__card">
           <h1 class="inital__card-title">Welcome to <span>NuxtUP</span></h1>
           <p class="inital__card-subtitle">Register for try my code</p>
-
-          <form action="" class="inital__form">
+          <Form
+            @submit="onSubmit"
+            :validation-schema="schema"
+            class="inital__form"
+          >
             <div class="inital__form-inputs">
-              <div class="inital__form-field">
-                <label for="email" class="inital__form-label">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  class="inital__form-input"
-                  placeholder="Enter your email"
-                  required
-                  id="userEmail"
-                />
-                <span class="inital__form-error">Error</span>
-              </div>
+              <TextField
+                name="email"
+                type="email"
+                label="Email"
+                placeholder="Enter your email"
+                :value="form.email"
+                v-model="form.email"
+              >
+              </TextField>
 
-              <div class="inital__form-field">
-                <label for="password" class="inital__form-label">
-                  Password
-                </label>
+              <TextField
+                name="password"
+                type="password"
+                label="Password"
+                placeholder="Enter your password"
+                v-model.trim="form.password"
+                :value="form.password"
+                :img="iconPswd"
+              >
+              </TextField>
 
-                <div class="inital__form-box">
-                  <input
-                    type="password"
-                    name="password"
-                    class="inital__form-input"
-                    placeholder="Enter your password"
-                    required
-                    id="userPswd"
-                    ref="inputPswd"
-                  />
-                  <img
-                    @click="showHiddenPswd(inputPswd, inputIconEye)"
-                    src="../public/img/eye.svg"
-                    alt="eye"
-                    class="icon-eye"
-                    id="input-icon"
-                    ref="inputIconEye"
-                  />
-                </div>
-
-                <span class="inital__form-error">Error</span>
-              </div>
+              <TextField
+                name="confirm_password"
+                type="password"
+                label="Confirm password"
+                placeholder="Enter your password again"
+                v-model.trim="form.confirmPassword"
+                :value="form.confirmPassword"
+                :img="iconPswdConfirm"
+              >
+              </TextField>
 
               <div class="inital__form-buttons">
-                <button @submit.prevent="submitForm" class="inital__form-btn">
-                  Register
-                </button>
                 <button
-                  @click="notSupportMsg"
-                  class="inital__form-btn inital__form-btn--light"
+                  type="submit"
+                  @click.prevent="onSubmit(form)"
+                  class="inital__form-btn"
                 >
-                  Login
+                  Register
                 </button>
               </div>
             </div>
-          </form>
+          </Form>
         </div>
       </main>
+
+      <Notification />
     </div>
   </div>
 </template>
 
 <script setup>
-  import { ref } from 'vue';
+  import { Form } from 'vee-validate';
+  import * as Yup from 'yup';
 
-  const inputIconEye = ref(null);
-  const inputPswd = ref(null);
+  const schema = Yup.object().shape({
+    name: Yup.string().required(),
+    email: Yup.string().email().required(),
+    password: Yup.string().min(6).required(),
+    confirm_password: Yup.string()
+      .required()
+      .oneOf([Yup.ref('password')], 'Passwords do not match'),
+  });
 
   const form = {
     email: '',
     password: '',
-    agreeConfirm: [],
+    confirmPassword: '',
   };
 
-  const showHiddenPswd = (inputPswd, inputIcon) => {
-    if (inputPswd.type === 'password') {
-      if (inputPswd.value !== '') {
-        inputPswd.type = 'text';
-        inputIcon.src = '_nuxt/public/img/eye-fill.svg';
-      }
-    } else {
-      inputPswd.type = 'password';
-      inputIcon.src = '_nuxt/public/img/eye.svg';
-    }
-  };
-
-  function notSupportMsg() {
-    alert('This feature unavailable now');
+  function onSubmit(values) {
+    console.log(JSON.stringify(values));
   }
+
+  const iconPswd = {
+    src: '/img/eye.svg',
+    alt: 'eye',
+  };
+
+  const iconPswdConfirm = {
+    src: '/img/eye.svg',
+    alt: 'eye',
+  };
 </script>

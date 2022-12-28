@@ -26,7 +26,7 @@
     background-color: hsla(244, 16%, 92%, 0.55);
     border: 2px solid hsla(244, 16%, 92%, 0.75);
     backdrop-filter: blur(20px);
-    height: 530px;
+    min-height: 530px;
     max-height: 100%;
     width: 600px;
     max-width: 100%;
@@ -133,6 +133,8 @@
       text-transform: uppercase;
       font-size: small;
       color: red;
+      font-weight: 500;
+      padding: 0 5px;
     }
   }
 
@@ -141,10 +143,19 @@
   }
 }
 
+.input__pswd-btn {
+  position: absolute;
+  width: 30px;
+  height: 50px;
+  border: none;
+  right: 10px;
+  cursor: pointer;
+  background: none;
+}
+
 .icon-eye {
   max-width: max-content;
   min-width: max-content;
-  position: absolute;
   right: 20px;
   bottom: 0;
   top: 0;

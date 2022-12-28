@@ -5,7 +5,15 @@ export default defineNuxtConfig({
         '@': 'src/',
   },
   ssr: true,
+  
+  components: true,
+  
+  modules: [],
+  
   css: [
     '~/assets/scss/common.scss',
   ],
+
+  // plugins: ["~/plugins/vee-validate.js"]
+  
 })
