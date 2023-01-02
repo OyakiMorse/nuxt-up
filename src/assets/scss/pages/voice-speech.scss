@@ -1,0 +1,34 @@
+
+
+// .container {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   height: 100vh;
+// }
+
+.container__group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+}
+
+textarea {
+  resize: none;
+}
+
+// input,
+// select,
+// .btn {
+//   width: 250px;
+// }
+
+.select {
+  height: 30px;
+}

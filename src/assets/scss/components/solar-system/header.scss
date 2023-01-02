@@ -1,0 +1,19 @@
+.solar-header {
+  position: fixed;
+  width: 100vw;
+  z-index: 2;
+  height: 200px;
+  color: wheat;
+  background: none;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  &__logo {
+    color: wheat;
+  }
+
+  &__menu {
+  }
+}

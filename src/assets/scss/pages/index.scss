@@ -1,5 +1,5 @@
 .inital {
-  position: relative;
+  // position: relative;
   height: 100vh;
 
   &__bg {
@@ -15,6 +15,7 @@
   }
 
   &__content {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,6 +23,8 @@
   }
 
   &__card {
+    margin-top: 100px;
+
     padding: 50px;
     background-color: hsla(244, 16%, 92%, 0.55);
     border: 2px solid hsla(244, 16%, 92%, 0.75);
@@ -31,6 +34,9 @@
     width: 600px;
     max-width: 100%;
     border-radius: 10px;
+    &:hover .tooltiptext {
+      visibility: visible;
+    }
 
     &-title {
       margin-bottom: 10px;
@@ -105,6 +111,7 @@
     }
 
     &-buttons {
+      margin-top: 20px;
       display: flex;
       gap: 20px;
     }
@@ -162,3 +169,14 @@
   margin: auto 0;
   cursor: pointer;
 }
+
+.is-invalid {
+  border: 2px solid red;
+
+  &:focus {
+    outline: none;
+    border: 2px solid red;
+  }
+}
+
+

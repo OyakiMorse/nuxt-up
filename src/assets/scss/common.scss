@@ -25,9 +25,14 @@ ul {
 }
 
 $purple: #6300ec;
-$darkPurple: #5300BC;
-$dark: #4C5159;
+$darkPurple: #5300bc;
+$dark: #4c5159;
 
 @import './pages/index.scss';
 @import './base/index.scss';
 @import './components/index.scss';
+
+@import './pages/voice-speech.scss';
+
+@import './components/solar-system/home.scss';
+@import './components/solar-system/header.scss';

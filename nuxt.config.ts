@@ -4,7 +4,7 @@ export default defineNuxtConfig({
     alias: {
         '@': 'src/',
   },
-  ssr: true,
+  ssr: false,
   
   components: true,
   
@@ -14,6 +14,8 @@ export default defineNuxtConfig({
     '~/assets/scss/common.scss',
   ],
 
-  // plugins: ["~/plugins/vee-validate.js"]
+  build: {
+    transpile: ['gsap'],
+  },
   
 })

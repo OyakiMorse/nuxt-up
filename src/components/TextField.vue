@@ -8,9 +8,10 @@
         :id="name"
         :placeholder="placeholder"
         :value="inputValue"
-        @blur.stop="handleBlur"
-        @input.stop="handleChange"
+        @blur="handleBlur"
+        @input="handleChange"
         class="inital__form-input"
+        :class="errorClass"
       />
 
       <button
@@ -77,6 +78,10 @@
       action: {
         type: Function,
       },
+    },
+    errorClass: {
+      type: Object,
+      default: '',
     },
   });
 
